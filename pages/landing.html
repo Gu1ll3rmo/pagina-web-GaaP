@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAAP - Heladería</title>
+   <style>
+
+    /* Tipografías */
+    @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Akaya+Kanadaka&display=swap');
+    
+    body { margin: 0; font-family: 'Akaya Kanadaka', cursive; background: #f5f5f5; }
+    header { background: #0b2c66; color: #E5B641; padding: 8px 30px; display: flex; justify-content: space-between; align-items: center; font-family: 'Agbalumo', sans-serif; }
+    header .logo-container { display: flex; align-items: center; gap: 10px; }
+    header .logo-container img { height: 30px; width: auto; }
+    header h2 { font-size: 20px; margin: 0; }
+    header nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: bold; font-size: 14px; }
+    .hero { position: relative; }
+    .hero img { width: 100%; height: 450px; object-fit: cover; }
+    .hero h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #E5B641; font-family: 'Agbalumo', sans-serif; font-size: 60px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .hero button { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); padding: 15px 30px; background: #b25d00; color: white; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-family: 'Agbalumo'; }
+
+    .productos-section { text-align: center; padding: 40px 10px; font-family: 'Agbalumo'; }
+    .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; margin-top: 30px; max-width: 1400px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+    .producto { background: transparent; overflow: hidden; border-radius: 0 0 20px 20px; font-family: 'Akaya Kanadaka'; display: flex; flex-direction: column; height: 100%; }
+    .producto img { width: 100%; aspect-ratio: 771 / 447; object-fit: cover; display: block; flex-shrink: 0; }
+    .producto-info { padding: 25px 20px; color: white; text-align: left; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-start; }
+    .producto h3 { margin: 0 0 12px 0; font-weight: bold; font-family: 'Agbalumo'; font-size: 28px; }
+    .producto p { font-size: 16px; color: white; margin: 0; line-height: 1.5; font-style: italic; flex-grow: 1; }
+    
+    /* Colores específicos para cada sabor */
+    .producto:nth-child(1) .producto-info { background: #f4c430; border-radius: 0 0 20px 20px; } /* Mango - Amarillo dorado */
+    .producto:nth-child(2) .producto-info { background: #1e3a5f; border-radius: 0 0 20px 20px; } /* Chicle - Azul oscuro */
+    .producto:nth-child(3) .producto-info { background: #ff6b9d; border-radius: 0 0 20px 20px; } /* Fresa - Rosa */
+    .producto:nth-child(4) .producto-info { background: #f5f5dc; border-radius: 0 0 20px 20px; } /* Coco - Beige claro */
+    .producto:nth-child(4) .producto-info h3,
+    .producto:nth-child(4) .producto-info p { color: #2c2c2c; }
+    .producto:nth-child(5) .producto-info { background: #d2b48c; border-radius: 0 0 20px 20px; } /* Mazapán - Beige */
+    .producto:nth-child(5) .producto-info h3,
+    .producto:nth-child(5) .producto-info p { color: #2c2c2c; }
+    .producto:nth-child(6) .producto-info { background: #5a4a7a; border-radius: 0 0 20px 20px; } /* Mora Azul - Morado */
+
+    .iconos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); text-align: center; margin: 40px 0; gap: 20px; padding: 0 20px; font-family: 'Akaya Kanadaka'; }
+    .iconos div img { width: 100px; }
+    .iconos div p { color: #444; font-size: 14px; }
+
+    .historia { background: #0b2c66; color: white; padding: 40px 20px; text-align: center; font-family: 'Agbalumo'; }
+    .historia p { max-width: 700px; margin: 0 auto; font-family: 'Akaya Kanadaka'; }
+
+    .visitanos { text-align: center; padding: 40px 20px; font-family: 'Agbalumo'; }
+    .visitanos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 25px; margin-top: 25px; }
+
+    footer { background: #0b2c66; color: white; padding: 40px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; font-family: 'Akaya Kanadaka'; }
+    footer > div { text-align: center; }
+    footer h3 { margin-bottom: 10px; font-family: 'Agbalumo'; }
+    footer a { color: white; text-decoration: none; display: block; margin-bottom: 6px; }
+    .social { text-align: center; }
+    .social img { width: 30px; margin-right: 10px; display: inline-block; }
+
+    .copyright { text-align: center; background: #0b2c66; color: white; padding: 15px; font-size: 14px; font-family: 'Akaya Kanadaka'; }
+
+    /* Media queries para móviles */
+    @media (max-width: 768px) {
+        header { padding: 6px 15px; }
+        header .logo-container img { height: 24px; }
+        header h2 { font-size: 16px; }
+        header nav a { font-size: 11px; margin-left: 10px; }
+        .hero h1 { font-size: 40px; }
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <a href="landing.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+            <img src="../Gapp.png" alt="GAAP Logo">
+            <h2>GAAP</h2>
+        </a>
+    </div>
+    <nav>
+        <a href="ubicaciones.html">UBICACIONES</a>
+        <a href="productos.html">PRODUCTOS</a>
+        <a href="nosotros.html">NOSOTROS</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/que-sabores-debo-ofrecer.jpg" alt="Helados">
+    <h1>GAAP</h1>
+    <button>Descubre más</button>
+</section>
+
+<section class="productos-section">
+    <h1>Nuestros productos</h1>
+    <p>Elaborados con pasión y calidad</p>
+
+    <div class="productos-grid">
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HMango.webp" alt="Mango">
+            <div class="producto-info">
+                <h3>MANGO</h3>
+                <p>Seleccionamos los mejores mangos maduros para crear una experiencia tropical única e inolvidable.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HChicle.jpeg" alt="Chicle">
+            <div class="producto-info">
+                <h3>CHICLE</h3>
+                <p>Sabor nostálgico que te transporta a la infancia. Dulce, cremoso y con ese toque característico que todos amamos.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HFresa.webp" alt="Fresa">
+            <div class="producto-info">
+                <h3>FRESA</h3>
+                <p>Fresas frescas seleccionadas en su punto perfecto de maduración para un sabor intenso y naturalmente dulce.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HCoco.webp" alt="Coco">
+            <div class="producto-info">
+                <h3>COCO</h3>
+                <p>Cremoso y refrescante. Hecho con pulpa de coco fresco y leche de coco artesanal.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HMazapan.webp" alt="Mazapán">
+            <div class="producto-info">
+                <h3>MAZAPÁN</h3>
+                <p>El sabor tradicional mexicano que todos amamos. Cremoso, dulce y con ese toque inconfundible de cacahuate.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HBlueBerry.jpg" alt="Mora azul">
+            <div class="producto-info">
+                <h3>MORA AZUL</h3>
+                <p>Moras azules frescas cargadas de antioxidantes. Sabor intenso y naturalmente dulce que cuida de ti.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="iconos">
+    <div>
+        <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Natural.png" alt="Natural">
+        <h4>100% natural</h4>
+        <p>Sin conservadores ni colorantes artificiales.</p>
+    </div>
+    <div>
+        <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Artesanal.png" alt="Artesanal">
+        <h4>Artesanal</h4>
+        <p>Helado hecho a mano con dedicación.</p>
+    </div>
+    <div>
+        <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Calidad.png" alt="Calidad">
+        <h4>Calidad Premium</h4>
+        <p>Ingredientes seleccionados para un mejor sabor.</p>
+    </div>
+    <div>
+        <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/MExico.png" alt="Mexicano">
+        <h4>Mexicano</h4>
+        <p>Orgullosamente hecho en México.</p>
+    </div>
+</section>
+
+<section class="historia">
+    <h2>NUESTRA HISTORIA</h2>
+    <p>La gente busca nuevas experiencias de consumo y con nuestro helado queremos brindar un sabor único y memorable.</p>
+    <p>Usamos ingredientes 100% naturales, asegurando calidad en cada preparación.</p>
+</section>
+
+<section class="visitanos">
+<h2>VISÍTANOS</h2>
+<p>Estamos aquí para ti</p>
+
+
+<div class="visitanos-grid">
+<div class="visita-item">
+<img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Telefono.webp" alt="Contacto" style="width:60px;">
+<h3>CONTACTANOS</h3>
+<p>+505 999 9999</p>
+<p>correo@gaap.mx</p>
+</div>
+<div class="visita-item">
+<img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Ubicacion.webp" alt="Ubicacion" style="width:60px;">
+<h3>UBICACION</h3>
+<p>Calle 10 y 25</p>
+<p>Colonia Centro</p>
+</div>
+<div class="visita-item">
+<img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/Relog.png" alt="Horario" style="width:60px;">
+<h3>HORARIO</h3>
+<p>Lun - Dom</p>
+<p>11:00 AM - 10:00 PM</p>
+</div>
+</div>
+</section>
+
+<footer>
+    <div>
+        <h3>GAAP</h3>
+        <p>Helados artesanales premium.</p>
+    </div>
+    <div>
+        <h3>NAVEGACIÓN</h3>
+        <a href="productos.html">Productos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="ubicaciones.html">Ubicaciones</a>
+        <a href="landing.html">Home</a>
+    </div>
+    <div>
+        <h3>LEGAL</h3>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+    </div>
+    <div class="social">
+        <h3>Síguenos</h3>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" width="30">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png" width="35">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/X-Logo-Round-Color.png" width="30">
+
+    
+    </div>
+    
+</footer>
+
+<div class="copyright">© 2025 GAAP Todos los derechos reservados.</div>
+
+</body>
+</html>
