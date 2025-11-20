@@ -16,15 +16,28 @@
     .hero img { width: 100%; height: 450px; object-fit: cover; }
     .hero button { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); padding: 15px 30px; background: #b25d00; color: white; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-family: 'Agbalumo'; }
 
-    .productos-section { text-align: center; padding: 40px 20px; font-family: 'Agbalumo'; }
-    .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
-    .producto { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-family: 'Akaya Kanadaka'; }
-    .producto img { width: 100%; border-radius: 12px; height: 160px; object-fit: cover; }
-    .producto h3 { margin: 12px 0 6px; font-weight: bold; font-family: 'Agbalumo'; }
-    .producto p { font-size: 14px; color: #444; }
+    .productos-section { text-align: center; padding: 40px 10px; font-family: 'Agbalumo'; }
+    .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; margin-top: 30px; max-width: 1400px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+    .producto { background: transparent; overflow: hidden; border-radius: 0 0 20px 20px; font-family: 'Akaya Kanadaka'; display: flex; flex-direction: column; height: 100%; }
+    .producto img { width: 100%; aspect-ratio: 771 / 447; object-fit: cover; display: block; flex-shrink: 0; }
+    .producto-info { padding: 25px 20px; color: white; text-align: left; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-start; }
+    .producto h3 { margin: 0 0 12px 0; font-weight: bold; font-family: 'Agbalumo'; font-size: 28px; }
+    .producto p { font-size: 16px; color: white; margin: 0; line-height: 1.5; font-style: italic; flex-grow: 1; }
+    
+    /* Colores específicos para cada sabor */
+    .producto:nth-child(1) .producto-info { background: #f4c430; border-radius: 0 0 20px 20px; } /* Mango - Amarillo dorado */
+    .producto:nth-child(2) .producto-info { background: #1e3a5f; border-radius: 0 0 20px 20px; } /* Chicle - Azul oscuro */
+    .producto:nth-child(3) .producto-info { background: #ff6b9d; border-radius: 0 0 20px 20px; } /* Fresa - Rosa */
+    .producto:nth-child(4) .producto-info { background: #f5f5dc; border-radius: 0 0 20px 20px; } /* Coco - Beige claro */
+    .producto:nth-child(4) .producto-info h3,
+    .producto:nth-child(4) .producto-info p { color: #2c2c2c; }
+    .producto:nth-child(5) .producto-info { background: #d2b48c; border-radius: 0 0 20px 20px; } /* Mazapán - Beige */
+    .producto:nth-child(5) .producto-info h3,
+    .producto:nth-child(5) .producto-info p { color: #2c2c2c; }
+    .producto:nth-child(6) .producto-info { background: #5a4a7a; border-radius: 0 0 20px 20px; } /* Mora Azul - Morado */
 
     .iconos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); text-align: center; margin: 40px 0; gap: 20px; padding: 0 20px; font-family: 'Akaya Kanadaka'; }
-    .iconos div img { width: 60px; }
+    .iconos div img { width: 100px; }
     .iconos div p { color: #444; font-size: 14px; }
 
     .historia { background: #0b2c66; color: white; padding: 40px 20px; text-align: center; font-family: 'Agbalumo'; }
@@ -67,33 +80,45 @@
     <div class="productos-grid">
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HMango.webp" alt="Mango">
-            <h3>MANGO</h3>
-            <p>Sabor fresco de mango maduro para una experiencia tropical inolvidable.</p>
+            <div class="producto-info">
+                <h3>MANGO</h3>
+                <p>Seleccionamos los mejores mangos maduros para crear una experiencia tropical única e inolvidable.</p>
+            </div>
         </div>
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HChicle.jpeg" alt="Chicle">
-            <h3>CHICLE</h3>
-            <p>Sabor nostálgico que te transporta a la infancia con un toque cremoso.</p>
+            <div class="producto-info">
+                <h3>CHICLE</h3>
+                <p>Sabor nostálgico que te transporta a la infancia. Dulce, cremoso y con ese toque característico que todos amamos.</p>
+            </div>
         </div>
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HFresa.webp" alt="Fresa">
-            <h3>FRESA</h3>
-            <p>Fresas frescas mezcladas en un helado cremoso y dulce.</p>
+            <div class="producto-info">
+                <h3>FRESA</h3>
+                <p>Fresas frescas seleccionadas en su punto perfecto de maduración para un sabor intenso y naturalmente dulce.</p>
+            </div>
         </div>
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HCoco.webp" alt="Coco">
-            <h3>COCO</h3>
-            <p>Cremoso y refrescante, elaborado con coco natural.</p>
+            <div class="producto-info">
+                <h3>COCO</h3>
+                <p>Cremoso y refrescante. Hecho con pulpa de coco fresco y leche de coco artesanal.</p>
+            </div>
         </div>
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HMazapan.webp" alt="Mazapán">
-            <h3>MAZAPÁN</h3>
-            <p>Un clásico mexicano convertido en helado suave y delicioso.</p>
+            <div class="producto-info">
+                <h3>MAZAPÁN</h3>
+                <p>El sabor tradicional mexicano que todos amamos. Cremoso, dulce y con ese toque inconfundible de cacahuate.</p>
+            </div>
         </div>
         <div class="producto">
             <img src="https://raw.githubusercontent.com/Gu1ll3rmo/pagina-web-GaaP/refs/heads/main/fotos/HBlueBerry.jpg" alt="Mora azul">
-            <h3>MORA AZUL</h3>
-            <p>Sabor intenso y dulce hecho con mora de alta calidad.</p>
+            <div class="producto-info">
+                <h3>MORA AZUL</h3>
+                <p>Moras azules frescas cargadas de antioxidantes. Sabor intenso y naturalmente dulce que cuida de ti.</p>
+            </div>
         </div>
     </div>
 </section>
